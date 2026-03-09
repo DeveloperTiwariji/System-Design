@@ -13,7 +13,7 @@ public class SingletonEager {
 }
 
 //<=================================2. Lazy Initialization (Thread-Safe)==========================>
-public class SingletonLazy {
+class SingletonLazy {
     private static SingletonLazy instance;
 
     private SingletonLazy() {
@@ -29,7 +29,7 @@ public class SingletonLazy {
 }
 
 //<=============================3. Double-Checked Locking (Thread-Safe)============================>
-public class SingletonDoubleChecked {
+class SingletonDoubleChecked {
     private static volatile SingletonDoubleChecked instance;
 
     private SingletonDoubleChecked() {
@@ -49,7 +49,7 @@ public class SingletonDoubleChecked {
 }
 
 //<=============================4. Bill Pugh Singleton Design Pattern (Thread-Safe)============================>
-public class SingletonBillPugh {
+class SingletonBillPugh {
     private SingletonBillPugh() {
         // Private constructor to prevent instantiation
     }
@@ -64,7 +64,7 @@ public class SingletonBillPugh {
 }
 
 //<=============================5. Enum Singleton Design Pattern (Thread-Safe)============================>
-public enum SingletonEnum {
+enum SingletonEnum {
     INSTANCE;
 
     // You can add methods here if needed
@@ -74,7 +74,7 @@ public enum SingletonEnum {
 }
 
 //<=============================6. ThreadLocal Singleton Design Pattern (Thread-Safe)============================>
-public class SingletonThreadLocal {
+class SingletonThreadLocal {
     private static final ThreadLocal<SingletonThreadLocal> threadLocalInstance = ThreadLocal.withInitial(SingletonThreadLocal::new);
 
     private SingletonThreadLocal() {
@@ -87,7 +87,7 @@ public class SingletonThreadLocal {
 }
 
 //<=============================7. Static Block Initialization (Thread-Safe)============================>
-public class SingletonStaticBlock {
+class SingletonStaticBlock {
     private static final SingletonStaticBlock INSTANCE;
 
     static {
@@ -108,7 +108,7 @@ public class SingletonStaticBlock {
 }
 
 //<=============================8. Synchronized Method Singleton Design Pattern (Thread-Safe)============================>
-public class SingletonSynchronizedMethod {
+class SingletonSynchronizedMethod {
     private static SingletonSynchronizedMethod instance;
 
     private SingletonSynchronizedMethod() {
@@ -124,7 +124,7 @@ public class SingletonSynchronizedMethod {
 }
 
 //<=============================9. Lazy Holder Singleton Design Pattern (Thread-Safe)============================>
-public class SingletonLazyHolder {
+ class SingletonLazyHolder {
     private SingletonLazyHolder() {
         // Private constructor to prevent instantiation
     }
@@ -135,6 +135,25 @@ public class SingletonLazyHolder {
 
     public static SingletonLazyHolder getInstance() {
         return Holder.INSTANCE;
+    }
+}
+
+
+// ====================================
+
+class singletonPattern{
+    public static singletonPattern instance;
+
+    private singletonPattern(){
+
+    }
+
+    public singletonPattern getInstance(){
+        if(instance==null){
+            instance = new singletonPattern();
+        }
+
+        return instance;
     }
 }
 
